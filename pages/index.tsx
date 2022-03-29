@@ -6,7 +6,7 @@ import { MetaData } from './components/MetaData'
 import { WebsiteCard } from './components/WebsiteCard'
 
 export default function Home() {
-  const [metadata, setMetadata] = useState(null);
+  const [metadata, setMetadata] = useState<Metadata | null>(null);
   return (
     <div className={styles.container}>
       <Head>

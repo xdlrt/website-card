@@ -2,7 +2,7 @@ import { Box, Button, TextField } from "@mui/material"
 import { ChangeEvent, useState } from "react"
 
 interface MetaDataProps {
-  updateData: (data) => void
+  updateData: (data: Metadata) => void
 }
 
 export const MetaData = (props: MetaDataProps) => {

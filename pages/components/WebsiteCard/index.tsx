@@ -1,8 +1,8 @@
-import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Typography } from "@mui/material"
+import { Avatar, Card, CardContent, CardHeader, CardMedia, Typography } from "@mui/material"
 import { Fragment } from "react";
 
 interface CardProps {
-  data: any
+  data: Metadata
 }
 
 export const WebsiteCard = (props: CardProps) => {
