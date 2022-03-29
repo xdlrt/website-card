@@ -2,7 +2,7 @@ import { Box, Container } from '@mui/material'
 import Head from 'next/head'
 import { useState } from 'react'
 import styles from '../styles/Home.module.css'
-import { MetaData } from './components/MetaData'
+import { MetaDataComp } from './components/MetaData'
 import { WebsiteCard } from './components/WebsiteCard'
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
 
       <Container sx={{ height: '100vh' }}>
         <Box mt={8} display={'flex'} alignItems={'center'} justifyContent={'center'}>
-          <MetaData updateData={setMetadata} />
+          <MetaDataComp updateData={setMetadata} />
         </Box>
         <Box pt={4} pb={4} display={'flex'} alignItems={'center'} justifyContent={'center'}>
           <WebsiteCard data={metadata} />

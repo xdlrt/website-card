@@ -5,7 +5,7 @@ interface MetaDataProps {
   updateData: (data: Metadata) => void
 }
 
-export const MetaData = (props: MetaDataProps) => {
+export const MetaDataComp = (props: MetaDataProps) => {
   const { updateData } = props;
   const [url, setUrl] = useState('')
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -25,3 +25,5 @@ export const MetaData = (props: MetaDataProps) => {
     </Box>
   )
 }
+
+export default MetaDataComp

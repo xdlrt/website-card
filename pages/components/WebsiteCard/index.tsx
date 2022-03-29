@@ -2,7 +2,7 @@ import { Avatar, Card, CardContent, CardHeader, CardMedia, Typography } from "@m
 import { Fragment } from "react";
 
 interface CardProps {
-  data: Metadata
+  data: Metadata | null
 }
 
 export const WebsiteCard = (props: CardProps) => {
@@ -34,3 +34,5 @@ export const WebsiteCard = (props: CardProps) => {
     </Card>
   )
 }
+
+export default WebsiteCard
