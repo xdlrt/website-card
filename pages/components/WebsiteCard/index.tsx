@@ -9,20 +9,20 @@ export const WebsiteCard = (props: CardProps) => {
   const { data } = props
   if (!data) return <Fragment />
   return (
-    <Card sx={{ maxWidth: '60%' }}>
+    <Card sx={{ width: '600px' }}>
       <CardHeader
         avatar={
           <Avatar src={data.logo}>
           </Avatar>
         }
-        title={data.author}
-        subheader={data.date}
+        title={data.author || data.publisher}
       />
-      <CardMedia
+      {data.image && <CardMedia
         component="img"
-        height="140"
+        height="200"
         image={data.image}
-      />
+        sx={{ objectFit: 'contain' }}
+      />}
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {data.title}

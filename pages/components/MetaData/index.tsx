@@ -1,5 +1,5 @@
 import { Box, Button, TextField } from "@mui/material"
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useEffect, useState } from "react"
 
 interface MetaDataProps {
   updateData: (data: Metadata) => void
@@ -7,15 +7,22 @@ interface MetaDataProps {
 
 export const MetaDataComp = (props: MetaDataProps) => {
   const { updateData } = props;
-  const [url, setUrl] = useState('')
+  const [url, setUrl] = useState('https://github.com/xdlrt/website-card')
+
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setUrl(event.target.value)
   }
+
   const fetchMetadata = async () => {
     const res = await fetch(`/api/fetchMetadata?url=${url}`)
     const json = await res.json()
     updateData(json)
   }
+
+  useEffect(() => {
+    fetchMetadata();
+  })
+
   return (
     <Box width={'60%'} maxWidth={800}>
       <TextField fullWidth label="输入要解析的 url" variant="outlined" value={url} onChange={handleChange} />
