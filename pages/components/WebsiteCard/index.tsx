@@ -1,36 +1,34 @@
-import { Avatar, Card, CardContent, CardHeader, CardMedia, Typography } from "@mui/material"
+import { Avatar, Card } from 'antd';
 import { Fragment } from "react";
+
+const { Meta } = Card;
 
 interface CardProps {
   data: Metadata | null
+  loading: boolean
 }
 
 export const WebsiteCard = (props: CardProps) => {
-  const { data } = props
+  const { data, loading } = props
   if (!data) return <Fragment />
+
+  const renderCover = () => {
+    if (loading) return null
+    if (data.image) return <img style={{ objectFit: 'contain' }} src={data.image} />
+    return null;
+  }
+
   return (
-    <Card sx={{ width: '600px' }}>
-      <CardHeader
-        avatar={
-          <Avatar src={data.logo}>
-          </Avatar>
-        }
+    <Card
+      loading={loading}
+      hoverable
+      cover={renderCover()}
+    >
+      <Meta
+        avatar={<Avatar src={data.logo} />}
         title={data.author || data.publisher}
+        description={data.description}
       />
-      {data.image && <CardMedia
-        component="img"
-        height="200"
-        image={data.image}
-        sx={{ objectFit: 'contain' }}
-      />}
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {data.title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {data.description}
-        </Typography>
-      </CardContent>
     </Card>
   )
 }

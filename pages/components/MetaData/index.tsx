@@ -1,12 +1,16 @@
-import { Box, Button, TextField } from "@mui/material"
+import { Input, message } from 'antd';
 import { ChangeEvent, useEffect, useState } from "react"
+
+const { Search } = Input;
 
 interface MetaDataProps {
   updateData: (data: Metadata) => void
+  loading: boolean
+  setLoading: (loading: boolean) => void
 }
 
 export const MetaDataComp = (props: MetaDataProps) => {
-  const { updateData } = props;
+  const { updateData, loading, setLoading } = props;
   const [url, setUrl] = useState('https://github.com/xdlrt/website-card')
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -14,22 +18,24 @@ export const MetaDataComp = (props: MetaDataProps) => {
   }
 
   const fetchMetadata = async () => {
-    const res = await fetch(`/api/fetchMetadata?url=${url}`)
-    const json = await res.json()
-    updateData(json)
+    try {
+      setLoading(true);
+      const res = await fetch(`/api/fetchMetadata?url=${url}`)
+      const json = await res.json()
+      updateData(json)
+      setLoading(false);
+    } catch (error: any) {
+      setLoading(false);
+      message.error(error?.message || 'Failed to fetch metadata');
+    }
   }
 
   useEffect(() => {
     fetchMetadata();
-  })
+  }, [])
 
   return (
-    <Box width={'60%'} maxWidth={800}>
-      <TextField fullWidth label="输入要解析的 url" variant="outlined" value={url} onChange={handleChange} />
-      <Box mt={1}>
-        <Button variant="contained" size="large" onClick={fetchMetadata}>立即解析</Button>
-      </Box>
-    </Box>
+    <Search placeholder="输入要解析的 url" enterButton="立即解析" size="large" loading={loading} value={url} onPressEnter={fetchMetadata} onSearch={fetchMetadata} onChange={handleChange} />
   )
 }
 
