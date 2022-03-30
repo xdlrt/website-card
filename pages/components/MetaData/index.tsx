@@ -35,7 +35,7 @@ export const MetaDataComp = (props: MetaDataProps) => {
   }, [])
 
   return (
-    <Search placeholder="输入要解析的 url" enterButton="立即解析" size="large" loading={loading} value={url} onPressEnter={fetchMetadata} onSearch={fetchMetadata} onChange={handleChange} />
+    <Search placeholder="enter your website url" enterButton="generate now!" size="large" loading={loading} value={url} onPressEnter={fetchMetadata} onSearch={fetchMetadata} onChange={handleChange} />
   )
 }
 

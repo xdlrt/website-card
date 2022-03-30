@@ -22,7 +22,7 @@ export default function Home() {
       <Row justify="center">
         <Col xs={20} xl={12}>
           <Title>website-card</Title>
-          <Text>解析你的网站并生成卡片。</Text>
+          <Text>generate a card for your website.</Text>
         </Col>
       </Row>
 
