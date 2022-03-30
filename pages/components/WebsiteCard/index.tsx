@@ -16,7 +16,7 @@ export const WebsiteCard = (props: CardProps) => {
           </Avatar>
         }
         title={data.author}
-        subheader="September 14, 2016"
+        subheader={data.date}
       />
       <CardMedia
         component="img"
