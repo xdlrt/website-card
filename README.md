@@ -11,7 +11,7 @@ visit https://website-card.vercel.app/ and generate your card.
 * [vercel](https://vercel.com/) - Develop. Preview. Ship. For the best frontend teams – Vercel.
 * [typescript](https://www.typescriptlang.org/) - Typed JavaScript at Any Scale.
 * [nextjs](https://nextjs.org/) - The React Framework for Production.
-* [antd](https://ant.design/) - Create an efficient and enjoyable work experience.
+* [tailwind](https://tailwindcss.com/) - Rapidly build modern websites without ever leaving your HTML.
 
 ## License
 
