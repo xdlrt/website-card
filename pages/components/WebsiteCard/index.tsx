@@ -1,7 +1,4 @@
-import { Avatar, Card } from 'antd';
 import { Fragment } from "react";
-
-const { Meta } = Card;
 
 interface CardProps {
   data: Metadata | null
@@ -9,27 +6,21 @@ interface CardProps {
 }
 
 export const WebsiteCard = (props: CardProps) => {
-  const { data, loading } = props
+  const { data } = props
   if (!data) return <Fragment />
 
-  const renderCover = () => {
-    if (loading) return null
-    if (data.image) return <img style={{ objectFit: 'contain' }} src={data.image} />
-    return null;
-  }
-
   return (
-    <Card
-      loading={loading}
-      hoverable
-      cover={renderCover()}
-    >
-      <Meta
-        avatar={<Avatar src={data.logo} />}
-        title={data.author || data.publisher}
-        description={data.description}
-      />
-    </Card>
+    <div className="bg-white flex items-center w-120 max-w-4xl h-32 shadow-lg rounded-md overflow-hidden">
+      <div className="h-full p-4 flex flex-col justify-between">
+        <div className="text-base font-semibold">{data.title}</div>
+        <div className="text-xs">{data.description}</div>
+        <div className="flex items-center">
+          <img src={data.logo} className='w-4 mr-2' />
+          <div className="text-xs">{data.author || data.publisher}</div>
+        </div>
+      </div>
+      <img src={data.image} className='max-h-full' />
+    </div >
   )
 }
 
