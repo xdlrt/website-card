@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useState } from 'react'
-import { toggleMode, useDarkMode } from '../common/darkMode';
+import { setCurrentMode, useDarkMode } from '../common/darkMode';
 import { MetaDataComp } from './components/MetaData'
 import { WebsiteCard } from './components/WebsiteCard'
 
@@ -11,7 +11,7 @@ export default function Home() {
   useDarkMode();
 
   return (
-    <div className='h-screen w-full pb-4 flex flex-col items-center bg-slate-50 dark:bg-slate-900 transition-all duration-300'>
+    <div className='h-screen w-full pb-8 flex flex-col items-center bg-slate-50 dark:bg-slate-900 transition-all duration-300'>
       <Head>
         <title>Website Card</title>
         <meta name="description" content="Generated url to a card" />
@@ -21,18 +21,22 @@ export default function Home() {
 
       <nav className='w-full container mx-auto px-10 py-6 flex items-center justify-between select-none'>
         <div className='flex items-center text-indigo-600 dark:text-indigo-500 font-bold text-2xl lg:text-4xl'>Website Card</div>
-        <div onClick={toggleMode} className="cursor-pointer">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 hidden dark:block dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-          </svg>
+        <div className="cursor-pointer">
+          <div onClick={() => setCurrentMode(true)}>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </div>
+          <div onClick={() => setCurrentMode(false)}>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 hidden dark:block dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </div>
         </div>
       </nav>
       <div className='container h-full mx-auto mt-4 md:mt-12 px-10 flex flex-col flex-1 items-center justify-start'>
         <MetaDataComp updateData={setMetadata} loading={loading} setLoading={setLoading} />
-        <div className='mt-8'>
+        <div className='mt-4 max-w-full'>
           <WebsiteCard data={metadata} loading={loading} />
         </div>
       </div>
