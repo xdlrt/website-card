@@ -7,7 +7,7 @@ export default function Home() {
   const [metadata, setMetadata] = useState<Metadata | null>(null);
   const [loading, setLoading] = useState(false);
   return (
-    <div className='h-screen w-full pb-4 flex flex-col items-center bg-slate-50 dark:bg-slate-800'>
+    <div className='h-screen w-full pb-4 flex flex-col items-center bg-slate-50 dark:bg-slate-900'>
       <Head>
         <title>Website Card</title>
         <meta name="description" content="Generated url to a card" />
@@ -18,9 +18,9 @@ export default function Home() {
       <nav className='w-full container mx-auto px-10 py-6'>
         <div className='flex items-center text-indigo-600 dark:text-indigo-500 font-bold text-2xl lg:text-4xl'>Website Card</div>
       </nav>
-      <div className='container h-full mx-auto px-10 pb-20 flex flex-col flex-1 items-center justify-center'>
+      <div className='container h-full mx-auto px-10 flex flex-col flex-1 items-center justify-center'>
         <MetaDataComp updateData={setMetadata} loading={loading} setLoading={setLoading} />
-        <div className='mt-4'>
+        <div className='mt-8'>
           <WebsiteCard data={metadata} loading={loading} />
         </div>
       </div>
@@ -39,7 +39,7 @@ export default function Home() {
                 </path>
               </svg>
             </a>
-            <span className='ml-4 text-gray-500 dark:text-gray-400 cursor-pointer no-underline hover:no-underline'>@yeshu</span>
+            <span className='ml-4 transition-colors duration-200 text-gray-400 hover:text-gray-800 dark:hover:text-white cursor-pointer no-underline hover:no-underline'>@yeshu</span>
           </div>
         </div>
       </footer>
