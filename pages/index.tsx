@@ -32,7 +32,7 @@ export default function Home() {
           </svg>
         </div>
       </nav>
-      <div className='container h-full mx-auto mt-12 px-10 flex flex-col flex-1 items-center justify-start'>
+      <div className='container h-full mx-auto mt-4 md:mt-12 px-10 flex flex-col flex-1 items-center justify-start'>
         <MetaDataComp updateData={setMetadata} loading={loading} setLoading={setLoading} />
         <div className='mt-8'>
           <WebsiteCard data={metadata} loading={loading} />
