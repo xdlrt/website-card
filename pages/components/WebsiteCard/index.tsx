@@ -10,7 +10,7 @@ export const WebsiteCard = (props: CardProps) => {
   if (!data) return <Fragment />
 
   return (
-    <div className="bg-white dark:bg-slate-800 flex items-center w-120 max-w-4xl h-36 shadow-lg rounded-md overflow-hidden">
+    <div className="bg-white dark:bg-slate-800 flex items-center w-120 max-w-4xl h-36 shadow-lg rounded-md overflow-hidden transition-all duration-300">
       <div className="h-full p-4 flex flex-col justify-between">
         <div className="text-base font-semibold w-fit max-w-xl dark:text-white overflow-hidden whitespace-nowrap text-ellipsis">{data.title}</div>
         <div className="text-xs dark:text-slate-400 max-w-2xl line-clamp-3">{data.description}</div>
