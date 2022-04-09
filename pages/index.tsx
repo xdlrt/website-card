@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useState } from 'react'
-import { toggleMode, useDarkMode } from './common/darkMode';
+import { toggleMode, useDarkMode } from '../common/darkMode';
 import { MetaDataComp } from './components/MetaData'
 import { WebsiteCard } from './components/WebsiteCard'
 
