@@ -1,7 +1,4 @@
-import { Input, message } from 'antd';
 import { ChangeEvent, useEffect, useState } from "react"
-
-const { Search } = Input;
 
 interface MetaDataProps {
   updateData: (data: Metadata) => void
@@ -26,7 +23,7 @@ export const MetaDataComp = (props: MetaDataProps) => {
       setLoading(false);
     } catch (error: any) {
       setLoading(false);
-      message.error(error?.message || 'Failed to fetch metadata');
+      // message.error(error?.message || 'Failed to fetch metadata');
     }
   }
 
