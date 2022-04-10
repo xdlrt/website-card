@@ -11,7 +11,7 @@ export default function Home() {
   useDarkMode();
 
   return (
-    <div className='h-screen w-full pb-8 flex flex-col items-center bg-slate-50 dark:bg-slate-900 transition-all duration-300'>
+    <div className='h-screen w-full pb-12 md:pb-4 flex flex-col items-center bg-slate-50 dark:bg-slate-900 transition-all duration-300'>
       <Head>
         <title>Website Card</title>
         <meta name="description" content="Generated url to a card" />
